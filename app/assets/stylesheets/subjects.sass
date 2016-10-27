@@ -1,0 +1,102 @@
+.subject-container
+  font-family:
+    font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif
+
+  .subject1
+    .header
+      padding-top: 10px
+      padding-bottom: 2px
+      h1
+        display: inline-block
+        font-size: 25px
+        font-weight: 800
+        text-align: center
+        padding-top: 5px
+        padding-bottom: 5px
+        width: 70vw
+      button.date-button
+        font-size: 20px
+        margin-bottom: 6px
+        // background-color: aqua
+
+    table
+      width: 96vw
+      margin-left: 2vw
+      margin-right: 2vw
+      height: auto
+      // background-color: aqua
+      border: solid 1px #000000
+      border-collapse: collapse
+      tr
+        border: solid 1px #000000
+        border-collapse: collapse
+        td
+          border: solid 1px #000000
+          border-collapse: collapse
+          font-size: 25px
+          &.team-id
+            width: 10vw
+            span
+              padding-left: 5px
+              padding-right: 5px
+            input
+              width: 65%
+              font-weight: 900
+              font-size: 25px
+              text-align: center
+          &.empty
+            width: 15vw
+            font-weight: 700
+            text-align: center
+          &.subject-id
+            width: 15vw
+            font-weight: 700
+            text-align: center
+          &.subject-name
+            width: 20vw
+            font-weight: 700
+            text-align: center
+          &.sheet-name
+            width: 40vw
+            font-weight: 700
+            text-align: center
+          &.gray
+            font-size: 18px
+            font-weight: 800
+            background-color: #e6e6e6
+            padding-top: 5px
+            padding-bottom: 5px
+            vertical-align: middle
+            text-align: center
+          &.mini-gray
+            font-size: 12px
+            font-weight: 100
+            background-color: #e6e6e6
+            padding-top: 5px
+            padding-bottom: 5px
+            vertical-align: middle
+            text-align: center
+            p
+              text-align: right
+      //----- input
+      tr.input
+        max-width: 10vw
+        overflow: hidden
+        height: 180%
+
+        td
+          height: 50px
+          min-height: 50px
+          span
+            vertical-align: middle
+          input.judge
+            vertical-align: middle
+
+        .timepicker
+          width: 8vw
+          .rc-time-picker-input
+            text-align: center !important
+            font-weight: 900 !important
+            font-size: 18px !important
+            height: 90% !important
+            vertical-align: middle

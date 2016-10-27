@@ -6,14 +6,11 @@ const nodeEnv = devBuild ? 'development' : 'production';
 
 const config = {
   entry: [
-    'es5-shim/es5-shim',
-    'es5-shim/es5-sham',
-    'babel-polyfill',
-    './app/bundles/HelloWorld/startup/HelloWorldApp',
+    './app/bundles/Subject/startup/index.js',
   ],
 
   output: {
-    filename: 'webpack-bundle.js',
+    filename: 'subjects.js',
     path: '../app/assets/webpack',
   },
 
@@ -34,13 +31,13 @@ const config = {
   module: {
     loaders: [
       {
-        test: require.resolve('react'),
-        loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
-      },
-      {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
       },
     ],
   },
@@ -49,11 +46,11 @@ const config = {
 module.exports = config;
 
 if (devBuild) {
-  console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
+  console.log('Webpack dev build for Rails');
   module.exports.devtool = 'eval-source-map';
 } else {
   config.plugins.push(
     new webpack.optimize.DedupePlugin()
   );
-  console.log('Webpack production build for Rails'); // eslint-disable-line no-console
+  console.log('Webpack production build for Rails');
 }
