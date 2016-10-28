@@ -4,7 +4,7 @@ import moment from 'moment';
 import autoBind from 'react-autobind';
 import DateButton from '../ui/DateButton';
 import Header from '../ui/Header';
-import TableLine from '../components/Subject1/TableLine';
+import TableLine from './Subject1/TableLine';
 
 export default class Subject1 extends Component {;
   constructor(props) {

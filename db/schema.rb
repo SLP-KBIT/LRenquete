@@ -10,6 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161028131018) do
+
+  create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.time     "run_time"
+    t.integer  "subject_id"
+    t.string   "teacher"
+    t.string   "group"
+    t.string   "student"
+    t.string   "results"
+    t.string   "advance_results"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
 end

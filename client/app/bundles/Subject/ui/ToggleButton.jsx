@@ -9,11 +9,13 @@ export default class ToggleButton extends Component {
     content: PropTypes.array,
     onClick: PropTypes.func,
     defaultIndex: PropTypes.number,
+    disable: PropTypes.boolean,
   }
 
   static defaultProps = {
     content: ['✗', '◯'],
     defualtIndex: 0,
+    disable: false,
   }
 
   constructor(props) {
@@ -23,6 +25,7 @@ export default class ToggleButton extends Component {
   }
 
   onClick() {
+    if (this.props.disable) return false;
     const index = (this.state.currentIndex + 1) % this.props.content.length;
     this.setState({ currentIndex: index, klass: 'pulse' });
     if (isFunc) this.props.onClick(index);
