@@ -9,7 +9,7 @@ export default class ToggleButton extends Component {
     content: PropTypes.array,
     onClick: PropTypes.func,
     defaultIndex: PropTypes.number,
-    disable: PropTypes.boolean,
+    disable: PropTypes.bool,
   }
 
   static defaultProps = {

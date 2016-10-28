@@ -5,21 +5,26 @@ import autoBind from 'react-autobind';
 import DateButton from '../ui/DateButton';
 import Header from '../ui/Header';
 import TableLine from './Subject1/TableLine';
+import AlertStore from '../stores/AlertStore';
+import AlertAction from '../actions/AlertAction';
 
 export default class Subject1 extends Component {;
   constructor(props) {
     super(props);
-    const result = {}
-    result[0] = [0, 0, 0, 0, 0, 0]
-    const advanceResult = {}
-    advanceResult[0] = [0, 0]
     this.state = {
       date: moment(),
       runCount: 0,
-      result,
-      advanceResult,
+      alertContent: null,
     };
     autoBind(this);
+  }
+
+  componentWillMount() {
+    AlertStore.addChangeListener(this.handleChangeAlertContent);
+  }
+
+  handleChangeAlertContent() {
+    this.setState({ alertContent: AlertStore.getAlertContent() })
   }
 
   handleChangeDate(date) {
@@ -31,9 +36,19 @@ export default class Subject1 extends Component {;
     this.setState({ runCount });
   }
 
+  onShowAlert(text) {
+    AlertAction.showAlert(
+      <div className="alert animated fadeIn">
+        <p>{text}</p>
+      </div>
+    );
+    _.delay(() => AlertAction.hideAlert(), 3000);
+  }
+
   render() {
     return (
       <div className="subject1">
+        {this.state.alertContent}
         <Header
           date={this.state.date}
           handleChange={(date) => this.handleChangeDate(date)}
@@ -125,6 +140,7 @@ export default class Subject1 extends Component {;
               _.times(this.state.runCount + 1, (index) => (
                 <TableLine
                   key={`table-line-key-${index}`}
+                  onShowAlert={this.onShowAlert}
                   runCount={index}
                 />
               ))

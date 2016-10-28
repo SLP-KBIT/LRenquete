@@ -27,22 +27,27 @@ class Api::SubjectsController < ApiController
   end
 
   def get_teacher
+    raise '審判が指定されていません' if params[:teacher].nil?
     @teacher = params[:teacher] unless params[:teacher].nil?
   end
 
   def get_group
+    raise '班が指定されていません' if params[:group].nil?
     @group = params[:group] unless params[:group].nil?
   end
 
   def get_student
+    raise '学生が指定されていません' if params[:student].nil?
     @student = params[:student] unless params[:student].nil?
   end
 
   def get_result
+    raise '結果が入力されていません' if params[:results].empty?
     @results = params[:results].join(',') unless params[:results].nil?
   end
 
   def get_advance_result
+    raise '結果が入力されていません' if params[:advance_results].nil?
     @advance_results = params[:advance_results].join(',') unless params[:advance_results].nil?
   end
 end

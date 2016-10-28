@@ -81,12 +81,13 @@ export default class TableLine extends Component {
       teacher: this.state.teacher,
       student: this.state.student,
       results: this.state.results,
-      advanceResults: this.state.advanceResults,
+      advance_results: this.state.advanceResults,
     }).then(res => {
       this.setState({ submitted: true });
+      this.props.onShowAlert('走行データを送信しました。');
       console.log(res);
     }).catch(err => {
-      console.error(err);
+      this.props.onShowAlert(`走行データの送信に失敗しました : ${err}`);
     });
   }
 
@@ -188,6 +189,7 @@ export default class TableLine extends Component {
         <td className="advance-p1">
           <ToggleButton
             onClick={data => this.onClickAdvance(data, 0)}
+            disable={this.state.submitted}
             content={['✗', '◯', '◎']}
             defaultIndex={0}
           />
@@ -195,6 +197,7 @@ export default class TableLine extends Component {
         <td className="advance-v0">
           <ToggleButton
             onClick={data => this.onClickAdvance(data, 1)}
+            disable={this.state.submitted}
             content={['✗', '△', '◯', '◎']}
             defaultIndex={0}
           />
