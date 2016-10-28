@@ -23,6 +23,9 @@ export default class Header extends Component {
           onChange={this.props.handleChange}
           selected={this.props.date}
         />
+        <button className="add-button" onClick={this.props.handleAddRunCount}>
+          + 記録を増やす
+        </button>
       </div>
     );
   }

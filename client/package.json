@@ -15,6 +15,7 @@
     "client/node_modules"
   ],
   "dependencies": {
+    "animate.css": "^3.5.2",
     "babel": "^6.5.2",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
@@ -28,6 +29,7 @@
     "es5-shim": "^4.5.7",
     "expose-loader": "^0.7.1",
     "imports-loader": "^0.6.5",
+    "lodash": "^4.16.4",
     "moment": "^2.15.2",
     "rc-time-picker": "^2.1.0",
     "react": "^0.14.8 || ^15.0.0",
